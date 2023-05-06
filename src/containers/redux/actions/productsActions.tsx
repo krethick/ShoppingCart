@@ -1,15 +1,38 @@
-import {ActionTypes} from "../constants/action-types";
-export const setProducts = (products) => {
-return {
-  type: ActionTypes.SET_PRODUCTS,
-  payload: products,
-  };
-};
+import { ActionType } from "../constants/action-types";
 
-export const selectedProduct = (product) => {
-  return {
-    type:ActionTypes.SELECTED_PRODUCTS,
-    payload: products,
-  };
-};
+interface ProductType {
+  id: number;
+  title: string;
+  category: string;
+}
+
+interface SetProductsAction {
+  type: typeof ActionType.SET_PRODUCTS;
+  payload: ProductType[];
+}
+
+interface SelectedProductsAction {
+  type: typeof ActionType.SELECTED_PRODUCTS;
+  payload: ProductType;
+}
+
+interface RemoveSelectedProductsAction {
+  type: typeof ActionType.REMOVE_SELECTED_PRODUCTS;
+}
+
+export type ProductAction =
+  | SetProductsAction
+  | SelectedProductsAction;
+
+
+export const setProducts = (products: ProductType[]): SetProductsAction => ({
+  type: ActionType.SET_PRODUCTS,
+  payload: products,
+});
+
+export const selectProduct = (product: ProductType): SelectedProductsAction => ({
+  type: ActionType.SELECTED_PRODUCTS,
+  payload: product,
+});
+
 
