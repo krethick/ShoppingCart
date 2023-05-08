@@ -6,11 +6,8 @@ const ProductComponent: React.FC = () => {
       const {id, title} = products[0];
   return (
 
-    <div style={{ margin: "20px" }}>
-     <p></p>
-     <p></p>
-     <p></p>
-     <div className="ui link cards" style={{ width: "500px", height: "300px" }}>
+    <div style={{ marginTop: "160px" }}>
+      <div className="ui link cards" style={{ width: "500px", height: "300px" }}>
        <div className="card">
          <div className="image"></div>
          <div className="content">
