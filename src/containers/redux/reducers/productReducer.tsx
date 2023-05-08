@@ -1,3 +1,5 @@
+//...state meaning existing state
+
 import { ActionType } from "../constants/action-types";
 
 interface Product {

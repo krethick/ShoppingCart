@@ -28,7 +28,7 @@ const ProductListing: React.FC = () => {
   return (
     <div className="ui grid container">
       <ProductComponent />
-      <h1 style={{ margin: "40px", textAlign: "right" }}>Product Listing</h1>
+      {/*<h1 style={{ margin: "40px", textAlign: "right" }}>Product Listing</h1>*/}
     </div>
   );
 };

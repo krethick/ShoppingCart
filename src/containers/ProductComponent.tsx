@@ -1,22 +1,38 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const ProductComponent: React.FC = () => {
-      const products = useSelector((state:any)=> state.productState.products);
-     // const {id, title} = products[0];
-  return (
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  category: string;
+}
 
-    <div style={{ marginTop: "160px" }}>
-      <div className="ui link cards" style={{ width: "500px", height: "300px" }}>
-       <div className="card">
-         <div className="image"></div>
-         <div className="content">
-            {/*<div className="header">{title}</div>*/}
+const ProductComponent: React.FC = () => {
+  const products = useSelector((state: any) => state.productState.products);
+  //We need to use map functions
+  const renderList = products.map((product: Product) => {
+    const { id, title, image, price, category } = product;
+    return (
+      <div style={{ marginTop: "160px" }} key={id}>
+        <div className="ui link cards" style={{ width: "200px", height: "500px" }}>
+          <div className="card">
+            <div className="image">
+              <img src={image} alt={title} />
+            </div>
+            <div className="content">
+              <div className="header">{title}</div>
+              <div className="meta price">$ {price}</div>
+              <div className="meta">{category}</div>
+            </div>
           </div>
-         </div>
         </div>
-    </div>
-  );
+      </div>
+    );
+  });
+
+  return <>{renderList}</>;
 };
 
 export default ProductComponent;
