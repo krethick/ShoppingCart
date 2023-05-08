@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const ProductComponent: React.FC = () => {
       const products = useSelector((state:any)=> state.productState.products);
-      const {id, title} = products[0];
+     // const {id, title} = products[0];
   return (
 
     <div style={{ marginTop: "160px" }}>
@@ -11,7 +11,7 @@ const ProductComponent: React.FC = () => {
        <div className="card">
          <div className="image"></div>
          <div className="content">
-            <div className="header">{title}</div>
+            {/*<div className="header">{title}</div>*/}
           </div>
          </div>
         </div>
