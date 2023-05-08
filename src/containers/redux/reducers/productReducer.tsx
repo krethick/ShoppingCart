@@ -1,38 +1,33 @@
 import { ActionType } from "../constants/action-types";
-import { ProductAction } from "../actions/productsActions";
 
-interface ProductState {
-  products: ProductType[];
-  selectedProduct: ProductType | null;
-}
-
-interface ProductType {
+interface Product {
   id: number;
   title: string;
   category: string;
 }
 
-const initialState: ProductState = {
-  products: [],
-  selectedProduct: null,
+interface Action {
+  type: string;
+  payload: Product[];
+}
+
+const initialState = {
+  products: [
+    {
+      id: 1,
+      title: "Dipesh",
+      category: "programmer",
+    },
+  ],
 };
 
-export const productReducer = (
-  state: ProductState = initialState,
-  action: ProductAction
-): ProductState => {
-  switch (action.type) {
+export const productReducer = (state = initialState, { type, payload }: Action) => {
+  switch (type) {
     case ActionType.SET_PRODUCTS:
       return {
         ...state,
-        products: action.payload,
+        products: payload,
       };
-    case ActionType.SELECTED_PRODUCTS:
-      return {
-        ...state,
-        selectedProduct: action.payload,
-      };
-
     default:
       return state;
   }
