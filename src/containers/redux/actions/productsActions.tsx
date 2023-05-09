@@ -22,6 +22,7 @@ interface RemoveSelectedProductsAction {
 
 export type ProductAction =
   | SetProductsAction
+  | RemoveSelectedProductsAction
   | SelectedProductsAction;
 
 
@@ -35,4 +36,8 @@ export const selectedProducts = (product: ProductType): SelectedProductsAction =
   payload: product,
 });
 
-
+export const removeSelectedProduct = (): RemoveSelectedProductsAction => {
+  return {
+    type: ActionType.REMOVE_SELECTED_PRODUCTS,
+  };
+};
