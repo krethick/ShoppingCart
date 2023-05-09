@@ -1,5 +1,3 @@
-//...state meaning existing state
-
 import { ActionType } from "../constants/action-types";
 
 interface Product {
@@ -24,6 +22,15 @@ export const productReducer = (state = initialState, { type, payload }: Action) 
         ...state,
         products: payload,
       };
+    default:
+      return state;
+  }
+};
+
+export const selectedProductReducer = (state = {}, { type, payload }: Action) => {
+  switch (type) {
+    case ActionType.SELECTED_PRODUCTS:
+      return { ...state, ...payload };
     default:
       return state;
   }

@@ -30,7 +30,7 @@ export const setProducts = (products: ProductType[]): SetProductsAction => ({
   payload: products,
 });
 
-export const selectProduct = (product: ProductType): SelectedProductsAction => ({
+export const selectedProducts = (product: ProductType): SelectedProductsAction => ({
   type: ActionType.SELECTED_PRODUCTS,
   payload: product,
 });

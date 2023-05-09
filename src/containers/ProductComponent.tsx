@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 interface Product {
@@ -16,6 +17,7 @@ const ProductComponent: React.FC = () => {
     const { id, title, image, price, category } = product;
     return (
       <div style={{ marginTop: "160px" }} key={id}>
+          <Link to={`/product/${id}`}>
         <div className="ui link cards" style={{ width: "200px", height: "500px" }}>
           <div className="card">
             <div className="image">
@@ -28,6 +30,7 @@ const ProductComponent: React.FC = () => {
             </div>
           </div>
         </div>
+        </Link>
       </div>
     );
   });
