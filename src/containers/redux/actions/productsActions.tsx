@@ -1,4 +1,6 @@
 import { ActionType } from "../constants/action-types";
+import axios from "axios";
+import { Dispatch } from "redux";
 
 interface ProductType {
   id: number;
@@ -21,10 +23,19 @@ interface RemoveSelectedProductsAction {
 }
 
 export type ProductAction =
+
   | SetProductsAction
   | RemoveSelectedProductsAction
   | SelectedProductsAction;
 
+
+
+export const fetchProducts = () => {
+  return async function (dispatch: Dispatch<ProductAction>) {
+    const response = await axios.get("/products");
+    dispatch(setProducts(response.data));
+  };
+};
 
 export const setProducts = (products: ProductType[]): SetProductsAction => ({
   type: ActionType.SET_PRODUCTS,
